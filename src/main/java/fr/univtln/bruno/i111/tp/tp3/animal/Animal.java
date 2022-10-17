@@ -12,6 +12,8 @@ import org.eclipse.collections.impl.map.mutable.primitive.ObjectIntHashMap;
 
 import java.util.regex.Pattern;
 
+import static java.util.regex.Pattern.UNICODE_CHARACTER_CLASS;
+
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
@@ -26,8 +28,8 @@ public /* abstract */ class Animal implements AutoCloseable{
     final static int MAX_SPECIES = 10;
     final static MutableObjectIntMap<String> ids = new ObjectIntHashMap<>(MAX_SPECIES);
 
-    //final static Pattern p = Pattern.compile("\\w+");
-    final static Pattern namePattern = Pattern.compile("[a-zA-Z]+");
+    final static Pattern namePattern = Pattern.compile("\\w+", UNICODE_CHARACTER_CLASS );
+    //final static Pattern namePattern = Pattern.compile("[a-zA-Z]+");
 
     static int nbAnimaux = 0;
 
